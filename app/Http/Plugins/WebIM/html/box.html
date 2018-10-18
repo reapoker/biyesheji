@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/js/plugins/layui/layim/build/css/layui.css">
+    <title>聊天</title>
+</head>
+<body>
+<script src="/js/plugins/layui/layim/build/layui.js"></script>
+<script>
+    // 从后台获取配置的信息
+    // 从后台获取列表
+    layui.use(['layim','jquery'],function (layim,$) {
+        var address = "ws://localhost:8282";
+        // 与socket绑定，并且把获取到的id发送到获取getmember组件中，与其绑定，并且返回成员，群组的列表
+        ws = new WebSocket(address);
+        // layim.on('sendMessage',function (res) {
+        //     console.log(res);
+        //     $.post("/api/admin/components",{"name":"im_sendToAll","content":JSON.stringify(res)},function (d) {
+        //     })
+        ws.onmessage = function (e) {
+            console.log(e);
+            // var data = eval("("+e.data+")");
+            // if(data.callback=='onConnect'){
+            //     bindPortAndInit(data.client_id);
+            // }else{
+            //     console.log(data);
+            //     layim.getMessage({
+            //
+            //     })
+            // }
+        }
+        })
+
+
+
+        // var bindPortAndInit = function (client_id) {
+        //     $.get('/api/admin/components',{"name":"im_getMembersList","client_id":client_id},function (data) {
+        //         layim.config({
+        //             brief : false,
+        //             title:'我就是试试',
+        //             notice:true,
+        //             init:{
+        //                 mine:data.data.mine,
+        //                 friend:data.data.list,
+        //             }
+        //         }).chat({
+        //             name:'测试帐号',
+        //             type:'friend',
+        //             avatar:'/assets/layouts/layout/img/avatar3_small.jpg',
+        //             id : -2
+        //         })
+        //     });
+        //
+        //
+        // }
+
+    // })
+</script>
+</body>
+</html>

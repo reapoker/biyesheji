@@ -1,0 +1,7 @@
+{
+  "name" : "默认主题",
+  "description": "默认主题",
+  "dir":"default",
+  "dev-pugins" :[],
+  "dev-mould" : []
+}

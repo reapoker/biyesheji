@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Metronic Admin Theme #1 | FixedHeader Extension</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for rowreorder extension demos" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="/assets/global/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="/assets/global/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME LAYOUT STYLES -->
+    <link href="/assets/global/plugins/jquery-nestable/jquery.nestable.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body style="background-color: white" >
+<div class="page-wrapper">
+
+    <div class="clearfix"> </div>
+    <!-- END HEADER & CONTENT DIVIDER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="">
+                <h1></h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="icon-bubble font-green"></i>
+                                    <span class="caption-subject font-green sbold uppercase">内容管理快捷菜单</span>
+                                </div>
+                                <div class="actions">
+                                    <div class="btn-group">
+                                        <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> 操作
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a onclick="updateMenu(this,'content_quick')" href="javascript:;"> 菜单入库</a>
+                                            </li>
+                                            <li class="divider"> </li>
+                                            <li>
+                                                <a m-type="content_quick" onclick="addMenu(this)" href="javascript:;">添加新菜单</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portlet-body ">
+                                <div class="dd aceberg" comp-name="menu_content_quick_list" id="menu_content_quick_list">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="icon-bubble font-green"></i>
+                                    <span class="caption-subject font-green sbold uppercase">网站管理快捷菜单</span>
+                                </div>
+                                <div class="actions">
+                                    <div class="btn-group">
+                                        <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> 操作
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a onclick="updateMenu(this,'site_control_quick')" href="javascript:;"> 菜单入库</a>
+                                            </li>
+                                            <li class="divider"> </li>
+                                            <li>
+                                                <a m-type="site_control_quick" onclick="addMenu(this)" href="javascript:;">添加新菜单</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portlet-body ">
+                                <div class="dd aceberg" comp-name="menu_site_control_quick_list"  id="menu_site_control_quick_list">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="icon-bubble font-green"></i>
+                                    <span class="caption-subject font-green sbold uppercase">内容管理菜单</span>
+                                </div>
+                                <div class="actions">
+                                    <div class="btn-group">
+                                        <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> 操作
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a onclick="updateMenu(this,'content')" href="javascript:;"> 菜单入库</a>
+                                            </li>
+                                            <li class="divider"> </li>
+                                            <li>
+                                                <a m-type="content" onclick="addMenu(this)" href="javascript:;">添加新菜单</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portlet-body ">
+                                <div class="dd aceberg" comp-name="menu_content_list" id="content_menu">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="icon-bubble font-green"></i>
+                                    <span class="caption-subject font-green sbold uppercase">网站管理菜单</span>
+                                </div>
+                                <div class="actions">
+                                    <div class="btn-group">
+                                        <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> 操作
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a onclick="updateMenu(this,'site_control')" href="javascript:;"> 菜单入库</a>
+                                            </li>
+                                            <li class="divider"> </li>
+                                            <li>
+                                                <a m-type="site_control" onclick="addMenu(this)" href="javascript:;">添加新菜单</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portlet-body ">
+                                <div class="dd aceberg" comp-name="menu_site_control_list" id="site_control_menu">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- END CONTENT BODY -->
+        </div>
+
+    </div>
+</div>
+
+<input type="hidden" id="m-type">
+<!-- BEGIN QUICK NAV -->
+
+<!-- END QUICK NAV -->
+<!--[if lt IE 9]>
+<script src="/assets/global/plugins/respond.min.js"></script>
+<script src="/assets/global/plugins/excanvas.min.js"></script>
+<script src="/assets/global/plugins/ie8.fix.min.js"></script>
+<![endif]-->
+<!-- BEGIN CORE PLUGINS -->
+<script src="/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/jquery-nestable/jquery.nestable.js" type="text/javascript"></script>
+<script src="/js/layer.js"></script>
+<script src="/js/plugins/requirejs/require.js" data-main="/js/aceberg.admin.r"></script>
+
+<script>
+    $(document).ready(function()
+    {
+
+    });
+
+
+    var setDeatails = function (obj,id) {
+        alert(id);
+    }
+
+    var addMenu = function (obj) {
+        var t = $(obj).attr('m-type');
+        $("#m-type").val(t);
+        layer.open({
+            type:2,
+            title: "添加新菜单——"+t,
+            shadeClose:false,
+            area:['800px','1000px'],
+            offset:'50px',
+            content: '/Admin/p.MenuManager.add',
+        })
+    }
+
+    var updateMenu = function (obj,type) {
+        var data;
+        switch(type){
+            case 'content_quick':
+                data = $("#menu_content_quick_list").nestable('serialize');
+                break;
+            case 'content':
+                data = $("#content_menu").nestable('serialize');
+                break;
+            case 'site_control_quick':
+                data = $("#menu_site_control_quick_list").nestable('serialize');
+                break;
+            case 'site_control':
+                data = $("#site_control_menu").nestable('serialize');
+                break;
+            default:
+                break;
+        }
+
+        var d = {};
+        d.data = data;
+        d.menu_type = type;
+        console.log(d);
+        layer.confirm("确认入库？",{icon:3,offset:'100px'},function (Index) {
+            window.aceberg(obj,'menu_update',d); // 执行入库函数
+            window.location.reload();   // 刷新页面
+            layer.close(Index);
+        });
+
+    }
+</script>
+</body>
+
+</html>

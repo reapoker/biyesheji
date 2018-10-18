@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Metronic Admin Theme #1 | FixedHeader Extension</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for rowreorder extension demos" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME LAYOUT STYLES -->
+    <link rel="stylesheet" href="/css/layer.css">
+    <!-- END HEAD -->
+
+<body style="background-color: white" >
+<div class="page-wrapper">
+
+    <div class="clearfix"> </div>
+    <!-- END HEADER & CONTENT DIVIDER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="">
+                <h1></h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption font-dark">
+                                    <i class="icon-settings font-dark"></i>
+                                    <span class="caption-subject bold uppercase">添加模块</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <form action="" class="form-horizontal" id="form_control">
+                                    <div class="form-body">
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">模块名称
+                                                <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" placeholder="" id="name" name="name">
+                                                <div class="form-control-focus"> </div>
+                                                <span class="help-block">输入模块名称，必填</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">目录名
+                                                <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" placeholder="" id="dir" name="dir">
+                                                <div class="form-control-focus"> </div>
+                                                <span class="help-block">输入模块目录名，英文路径，且请勿输入特殊字符</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">描述
+                                                <span class="required"></span>
+                                            </label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" placeholder="" id="description" name="description">
+                                                <div class="form-control-focus"> </div>
+                                                <span class="help-block">输入模块描述，可选填</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">上级模块</label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" id="module_id" name="module_id">
+                                                    <option value="0">顶级模块</option>
+                                                </select>
+                                                <div class="form-control-focus"> </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">所属模型</label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" id="model_id" name="model_id">
+                                                    <option value="">请选择所属模型</option>
+                                                </select>
+                                                <div class="form-control-focus"> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="tabbable-line">
+                                    <div class="pull-right">
+                                        <button id="col_add" class="btn btn-primary">添加字段</button>
+                                    </div>
+                                    <ul class="nav nav-tabs nav-tabs-lg">
+                                        <li class="active">
+                                            <a href="#tab_1" data-toggle="tab"> 自定义字段表 </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_1">
+                                            <div class="mt-element-card mt-card-round mt-element-overlay">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <table style="table-layout: fixed" class="table  table-bordered table-hover table-header-fixed" id="add_module">
+                                                            <thead>
+                                                            <tr class="">
+                                                                <th width="40"><input type="checkbox"> </th>
+                                                                <th width="100"> 名称 </th>
+                                                                <th width="100"> 英文标识 </th>
+                                                                <th> 字段配置 </th>
+                                                                <th width="150"> 操作 </th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody id="cols">
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="btn-group" role="group">
+                                                            <button type="button" onclick="addModule()" class="btn btn-primary">确认添加模块</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END CONTENT BODY -->
+        </div>
+
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+
+    <!-- END FOOTER -->
+</div>
+<!--这里放置你点击修改按钮时的列的值，用来给修改页的iframe读取-->
+<input type="hidden" id="selected-cols" name="selected-cols">
+<!-- BEGIN QUICK NAV -->
+
+<!-- END QUICK NAV -->
+<!--[if lt IE 9]>
+<script src="/assets/global/plugins/respond.min.js"></script>
+<script src="/assets/global/plugins/excanvas.min.js"></script>
+<script src="/assets/global/plugins/ie8.fix.min.js"></script>
+<![endif]-->
+<!-- BEGIN CORE PLUGINS -->
+<script src="/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="/js/sweetalert.js"></script>
+<script src="/js/layer.js"></script>
+<script src="/js/aceberg.admin.js"></script>
+<script>
+    $(document).ready(function()
+    {
+        getModuleList(); // 获取模型列表
+        getModelsList(); // 模型列表
+        $("#col_add").on('click',function () {
+            layer.open({
+                type : 2,
+                title: "添加自定义字段",
+                shadeClose:false,
+                area:['800px','1000px'],
+                offset:'50px',
+                content: '/Admin/p.ModulesManager.cols_add'
+            });
+        });
+
+        $("#model_id").change(function (){
+            $("#cols").html("");
+            getCols();
+        });
+
+        $("#module_id").change(function () {
+            $("#cols").html("");
+            getCols();
+        });
+
+    });
+
+    function renderModuleTable(data) {
+        var html = `
+                <tr>
+                <td> <input type="checkbox"> </td>
+                <td> ${data.name} </td>
+                <td> ${data.dir} </td>
+                <td style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis"> ${data.info}</td>
+                <td><button name="modify" onclick="col_modify(this)" class="btn btn-info">修改</button> <button onclick="col_delete(this)" name="delete" class="btn btn-danger">删除</button> </td>
+                </tr>
+       `;
+        $("#cols").append(html);
+    }
+
+
+    //TODO 获取模块列表
+    var getModuleList = function () {
+        aceberg($("#module_id"),"module_list",{"type":"list"},function (d) {
+            var data = d.data;
+                var html = '';
+                if(data == null) return false;
+                for (var i=0;i<data.length;i++){
+                    html += `
+                    <option value="${data[i].id}">${data[i].name}</option>
+                    `;
+                }
+                $("#module_id").append(html);
+
+        })
+    }
+
+    //TODO 获取已安装模型列表
+    var getModelsList = function () {
+        aceberg($("#model_id"),"mould_installed",{},function (d) {
+            var data = d.data;
+                var html = '';
+                if(data == null) return false;
+                for(var i=0;i<data.length;i++){
+                    html += `<option value="${data[i].id}">${data[i].name}</option>`;
+                }
+                // console.log(html);
+                $("#model_id").append(html);
+        })
+    };
+
+
+
+    // 确认添加模块
+    var addModule = function () {
+        var config = {}; // 要传到后台的数据
+        var data = {};
+        data.name = $("#name").val();
+        data.dir = $("#dir").val();
+        data.description = $("#description").val();
+        data.module_id = $("#module_id option:selected").val();
+        data.model_id = $("#model_id option:selected").val();
+        var table = $("#add_module").find('tr');
+        table.each(function () {  // 遍历tr
+            var td = $(this).find('td'); // 在tr下寻找td;
+            var dir = td.eq(2).text(); // 英文标识
+            var info = td.eq(3).text(); // 具体数据
+            config[dir] = info;
+        });
+        data.config = JSON.stringify(config);
+        // 开始向后台数据发送数据
+        var d = {};
+        d.name = 'module_add';
+        d.data = data;
+        $.ajax({
+            type : 'post',
+            url  : '/api/admin/components',
+            data : d,
+            async: true,
+            dataType: 'json' ,
+            success : function (d) {
+                layer.msg("模块添加成功！",{icon:6,offset:'200px'},function () {
+                    window.location.href = '/Admin/p.ModulesManager.index';
+                })
+            },
+            error :   function (data) {
+                layer.msg("出错了！",{icon:6,offset:'100px'});
+            }
+        });
+    };
+
+    // 获取指定模型或模块的列
+    var getCols = function () {
+        var m_id = $("#model_id option:selected").val(); // 获取所属模型的id
+        var u_id = $("#module_id option:selected").val(); // 获取上级模块的id
+        if(m_id ==""|| typeof(m_id)=="undefined"){ // 如果还没选择模型，就不执行
+            return false;
+        }
+
+        $.get('/api/admin/components',{"name":"module_get_cols","m_id":m_id,"u_id":u_id},function (d) {
+            var cols = d.data;
+            for(var v in cols){
+                if(v=="") continue;
+                var j = JSON.parse(cols[v]);
+                var info = JSON.stringify(j);
+                var html = `
+                <tr>
+                <td> <input type="checkbox"> </td>
+                <td> ${j.name} </td>
+                <td> ${j.dir} </td>
+                <td name="info"> ${info}</td>
+                <td><button name="modify" onclick="col_modify(this)" class="btn btn-info">修改</button> <button name="delete" onclick="col_delete(this)" class="btn btn-danger">删除</button> </td>
+                </tr>
+                `;
+                $("#cols").append(html);
+            }
+        })
+    }
+
+    var col_modify =  function (obj) {
+        var node = $(obj).parent().parent().find("td");
+        var info = node.eq(3).text(); // 获取列配置
+        var name = node.eq(1).text(); // 获取名字
+        var dir = node.eq(2).text(); // 获取英文标识
+        // 赋值
+        $("#selected-cols").attr('data-name',name);
+        $("#selected-cols").attr('data-info',info);
+        $("#selected-cols").attr('data-dir',dir);
+        // 打开一个页面，并且传入这个列配置的值
+        layer.open({
+            type : 2,
+            title: "修改"+name+"字段",
+            shadeClose:false,
+            area:['800px','1000px'],
+            offset:'50px',
+            content: '/Admin/p.ModulesManager.cols_modify',
+        });
+    }
+
+    var col_delete = function (obj) {
+        $(obj).parent().parent().remove();
+    }
+
+</script>
+</body>
+
+</html>

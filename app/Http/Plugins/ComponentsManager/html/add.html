@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>添加组件</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for rowreorder extension demos" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="../assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/js/plugins/editor/css/editormd.min.css" />
+    <!-- END THEME LAYOUT STYLES -->
+    <link rel="stylesheet" href="/css/layer.css">
+    <!-- END HEAD -->
+
+<body style="background-color: white" >
+<div class="page-wrapper">
+
+    <div class="clearfix"> </div>
+    <!-- END HEADER & CONTENT DIVIDER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="">
+                <h1></h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet light bordered">
+
+                            <div class="portlet-body">
+                                <form action="" class="form-horizontal" id="form_control">
+                                    <div class="form-body">
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">组件名
+                                                <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" placeholder="" id="name" name="name">
+                                                <div class="form-control-focus"> </div>
+                                                <span class="help-block">输入组件名称，只能使用英文，必填</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">描述
+                                                <span class="required"></span>
+                                            </label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" placeholder="" id="description" name="description">
+                                                <div class="form-control-focus"> </div>
+                                                <span class="help-block">输入组件描述，可选</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">选择访问方式</label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" id="type" name="type">
+                                                    <option value="get">GET</option>
+                                                    <option value="post">POST </option>
+                                                    <option value="put">PUT (仅部分浏览器支持,请谨慎选择) </option>
+                                                    <option value="delete">DELETE (仅部分浏览器支持,请谨慎选择)</option>
+                                                    <option value="only-front">仅前台执行</option>
+                                                </select>
+                                                <div class="form-control-focus"> </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">选择所属模型</label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" id="models" name="models">
+                                                    <option value="0">自定义组件</option>
+                                                </select>
+                                                <div class="form-control-focus"> </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="php_area" class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">后端操作逻辑</label>
+                                            <div class="col-md-9">
+                                                <div id="editor"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-md-line-input">
+                                            <label class="col-md-3 control-label" for="form_control">前端操作逻辑</label>
+                                            <div class="col-md-9">
+                                                <div id="editor2"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-actions">
+                                            <label class="col-md-3"></label>
+                                            <div class="col-md-9">
+                                                <button type="button" onclick="submitComponent(this)" class="btn blue">注册组件</button>
+                                                <button type="button" onclick="cancel()" class="btn default">取消</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END CONTENT BODY -->
+        </div>
+
+    </div>
+
+    <!-- END FOOTER -->
+</div>
+<!-- BEGIN QUICK NAV -->
+<!-- END QUICK NAV -->
+<!--[if lt IE 9]>
+<script src="../assets/global/plugins/respond.min.js"></script>
+<script src="../assets/global/plugins/excanvas.min.js"></script>
+<script src="../assets/global/plugins/ie8.fix.min.js"></script>
+<![endif]-->
+<!-- BEGIN CORE PLUGINS -->
+<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="/js/sweetalert.js"></script>
+<script src="/js/layer.js"></script>
+<script src="/js/plugins/editor/editormd.min.js"></script>
+<script src="/js/aceberg.admin.js"></script>
+<script >
+    $(document).ready(function () {
+        var editor;
+        var editor2;
+
+        initEditors();
+
+        initModels();
+
+        $("#type").on('change',function () {
+            var t = $("#type option:selected").val();
+            if(t == "only-front"){
+                $("#php_area").hide('1000');
+            }else{
+                $("#php_area").show('1000');
+            }
+        })
+    });
+
+    var initEditors = function () {
+        var p_code = `<?php
+            function handle($arr){
+
+            }
+        ?>`;
+        var j_code = `define(function(){
+            var handle = function(node,d){
+
+            }
+            return {
+                handle : handle
+            }
+        })`;
+        editor = editormd("editor", {
+            height: 400,
+            watch            : false,
+            toolbar          : false,
+            codeFold         : true,
+            searchReplace    : true,
+            placeholder      : "目前只支持php和js代码高亮!",
+            mode             : "php",
+            path : "/js/plugins/editor/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
+        });
+        editor2 = editormd("editor2",{
+            height: 400,
+            watch            : false,
+            toolbar          : false,
+            codeFold         : true,
+            searchReplace    : true,
+            placeholder      : "目前只支持php和js代码高亮!",
+            mode             : "javascript",
+            value            : j_code,
+            path : "/js/plugins/editor/lib/"
+        });
+    }
+
+
+    var submitComponent = function (obj) {
+        // console.log(editor.getValue());
+        var data = {};
+        data.name = $("#name").val();
+        data.description = $("#description").val();
+        data.model_id = $("#models option:selected").val();
+        data.php_code = editor.getValue();
+        data.js_code = editor2.getValue();
+        data.type = $("#type option:selected").val();
+        var d = {};
+        d.name = 'component_add';
+        d.data = data;
+        $.ajax({
+            type : 'post',
+            url  : '/api/admin/components',
+            data : d,
+            async: true,
+            dataType: 'json' ,
+            success : function (d) {
+                layer.msg("注册成功！已写入配置文件",{icon:6,offset:'200px'},function (index) {
+                    window.location.href = "/Admin/p.ComponentsManager.index";
+                })
+            },
+            error :   function (d) {
+                alert("api访问失败！");
+            }
+        });
+    }
+
+    var cancel = function () {
+        window.location.href = "/Admin/p.ComponentsManager.index";
+    }
+
+    var initModels = function () {
+        $.get('/api/admin/models/installed',function (d) {
+            var html = '';
+            var data = d.data;
+            for(var i=0;i<data.length;i++){
+                html += `
+                <option value="${data[i].id}">${data[i].name}</option>
+                `;
+            }
+            $("#models").append(html);
+        })
+    }
+</script>
+
+
+</body>
+
+</html>

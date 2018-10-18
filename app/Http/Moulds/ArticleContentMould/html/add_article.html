@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Metronic Admin Theme #1 | FixedHeader Extension</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for rowreorder extension demos" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+
+    <link href="/assets/global/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/js/plugins/datetimepicker/css/bootstrap-datetimepicker.css">
+    <!-- END THEME LAYOUT STYLES -->
+    <link rel="stylesheet" href="/js/plugins/editor/css/editormd.min.css" />
+    <link rel="stylesheet" href="/css/layer.css">
+    <!-- END HEAD -->
+
+    <script src="/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/js/plugins/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="/js/plugins/editor/editormd.min.js"></script>
+    <script >window.UEDITOR_HOME_URL = "/js/plugins/neditor/";</script>
+    <script type="text/javascript" src="/js/plugins/neditor/neditor.config.js"></script>
+    <script type="text/javascript" src="/js/plugins/neditor/neditor.all.min.js"> </script>
+    <script type="text/javascript" src="/js/plugins/neditor/i18n/zh-cn/zh-cn.js"></script>
+
+<body style="background-color: white" >
+<div class="page-wrapper">
+
+    <div class="clearfix"> </div>
+    <!-- END HEADER & CONTENT DIVIDER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="">
+                <h1></h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet light bordered">
+
+                            <div class="portlet-body">
+                                <div align="center"><h3>新建文档</h3></div>
+                                <form action="" class="form-horizontal" id="form_control">
+                                    <div class="form-group form-md-line-input">
+                                        <label class="col-md-3 control-label" for="form_control">选择所属模块</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" id="module_id" name="module_id">
+                                                <option value="0">无</option>
+                                            </select>
+                                            <div class="form-control-focus"> </div>
+                                        </div>
+                                    </div>
+                                    <div id="editArea"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END CONTENT BODY -->
+        </div>
+
+    </div>
+
+    <!-- END FOOTER -->
+</div>
+<!-- BEGIN QUICK NAV -->
+
+<!-- END QUICK NAV -->
+<!--[if lt IE 9]>
+<script src="/assets/global/plugins/respond.min.js"></script>
+<script src="/assets/global/plugins/excanvas.min.js"></script>
+<script src="/assets/global/plugins/ie8.fix.min.js"></script>
+<![endif]-->
+<!-- BEGIN CORE PLUGINS -->
+<script src="/assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
+
+<script src="/assets/global/scripts/app.min.js" type="text/javascript"></script>
+
+<script src="/assets/pages/scripts/form-dropzone.min.js" type="text/javascript"></script>
+
+
+<script src="/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="/js/lib/art.js"></script>
+<script src="/js/layer.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {'Authorization': 'Bearer ' + localStorage.api_token}
+        })
+        $("#form_control").submit(function (e) {
+            e.preventDefault();
+            var data = {};
+            var t = $("#form_control" ).serializeArray();
+            $.each(t, function() {
+                data[this.name] = this.value;
+            });
+            for(var n in data){
+                if(n.indexOf('-')){
+                    var arr = n.split('-');
+                    if(arr[1]=="markdown"&&arr[2]=="doc"){
+                        data[arr[0]] = data[n];
+                    }
+                }
+                if(n.trim()=="editorValue"){
+                    var id = $(".ueditor").attr('id');
+                    data[id] = data[n];
+                }
+            }
+            var d = {};
+            d.name="arc_add";
+            d.data = data;
+
+            $.ajax({
+                type : 'post',
+                url  : '/api/admin/components',
+                data : d,
+                async: false,
+                dataType: 'json' ,
+                success : function (d) {
+                    layer.msg("添加成功！",{icon:6},function () {
+                        window.history.back();
+                    })
+                },
+                error :   function (d) {
+                    console.log(d);
+                    alert("api访问失败!")
+                }
+            });
+        })
+        $.get('/api/admin/components', {"name": "module_list", "type": "list"}, function (d) {
+            var data = d.data;
+            var html = '';
+            for (var i = 0; i < data.length; i++) {
+                html += `<option value="${data[i].id}">${data[i].name}</option>`
+            }
+            $("#module_id").append(html);
+            var url = window.location.href;
+            var arr = url.split('/');
+            var id = arr.pop();
+
+            $("#module_id").val(id).trigger('change');
+        })
+
+
+        $("#module_id").change(function () {
+            var id = $("#module_id option:selected").val();
+            $.ajax({
+                type : 'get',
+                url  : '/api/admin/components',
+                data : {"name":'arc_add_html',"id":id},
+                async: false,
+                dataType: 'json' ,
+                success : function (d) {
+                    var data = d.data;
+                    for(var n in data){
+                        if(n==""||data[n]=="") continue;
+                        data[n] = JSON.parse(data[n]);
+                    }
+                    d.data = data;
+                    d.getAcceptedFiles = function(view,type){
+                        var reg = new RegExp("->");
+                        if(reg.test(view)){
+                            var arr = view.split("->");
+                            var accept = view.split(";");
+                            return accept[1];
+                        }else{
+                            return view;
+                        }
+                    };
+                    d.is_multi = function (view) {
+                        var reg = new RegExp("->");
+                        if(reg.test(view)){
+                            var arr = view.split("->");
+                            return arr[0].trim();
+                        }else{
+                            return view;
+                        }
+                    };
+
+                    d.is_custom = function(view){
+                        // 判断是否是自定义组件
+                        var reg = new RegExp("->");
+                        if(reg.test(view)){
+                            var arr = view.split("->");
+                            var a = arr[1]; // 得到选项字符串
+                            var op = a.split("&")
+                            var j=0;
+                            // 查看是否具有 module mould 字段 如果有，证明是，如果没有，返回false
+                            //mould=Classication&module=dir&m_id=ee&er=22 以=分割
+                            for(var i=0;i<op.length;i++){
+                                 var t = op[i].split("=");
+                                 if(t[0] =="mould"||t[0]=="module" ||t[0]=="component_name" ){
+                                     j+=1;
+                                 }
+
+                            }
+                            if(j>=1){
+                                // 验证成功，返回配置项，后端取数据
+                                return view;
+                            }else{
+                                return false;
+                            }
+
+                        }else{
+                            return false;
+                        }
+                    }
+
+                    d.multi_arr = function (view) {
+                        var reg = new RegExp("->");
+                        if(reg.test(view)){
+                            var arr = view.split("->");
+                            var a = arr[1]; // 得到选项字符串
+                            return a.split('|');
+                        }else{
+                            return false;
+                        }
+                    };
+
+                    var html = template('arc_add_html',d);
+                    $("#editArea").html(html);
+                },
+                error :   function (d) {
+                    console.log(d);
+                    alert("api访问失败!")
+                }
+            });
+        })
+    });
+
+
+</script>
+
+<script id="arc_add_html" type="text/html">
+<div class="form-body">
+    {{each data $value $index}}
+    {{if $value == ""}}{{/if}}
+    {{if $index == ""}}{{/if}}
+    {{if is_multi($value.view) == "input"}}
+    <div class="form-group form-md-line-input">
+        <label class="col-md-3 control-label" for="form_control">{{$value.name}}
+            <span class="required">*</span>
+        </label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" placeholder="" id="{{$value.dir}}" name="{{$value.dir}}">
+            <div class="form-control-focus"></div>
+            <span class="help-block">{{$value.comment}}</span>
+        </div>
+    </div>
+    {{/if}}
+
+    {{if is_multi($value.view) == "password"}}
+    <div class="form-group form-md-line-input">
+        <label class="col-md-3 control-label" for="form_control">{{$value.name}}
+            <span class="required">*</span>
+        </label>
+        <div class="col-md-9">
+            <input type="password" class="form-control" placeholder="" id="{{$value.dir}}" name="{{$value.dir}}">
+            <div class="form-control-focus"></div>
+            <span class="help-block">{{$value.comment}}</span>
+        </div>
+    </div>
+    {{/if}}
+
+
+    {{if is_multi($value.view) == "radio"}}
+    <div class="form-group form-md-radios">
+        <label class="col-md-3 control-label" for="form_control">{{$value.name}}:</label>
+        <div class="col-md-9">
+            <div class="md-radio-inline">
+                {{each multi_arr($value.view) $v}}
+                <div class="md-radio">
+                    <input type="radio" id="{{$index}}" name="{{$value.dir}}" value="{{$v}}" class="md-radiobtn">
+                    <label for="{{$index}}">
+                        <span></span>
+                        <span class="check"></span>
+                        <span class="box"></span> {{$v}}</label>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+
+    {{if is_multi($value.view) == "timer"}}
+    <div class="form-group form-md-line-input">
+        <label class="col-md-3 control-label" for="form_control">{{$value.name}}
+            <span class="required">*</span>
+        </label>
+        <div class="col-md-9">
+            <input data-date-format="yyyy-mm-dd hh:ii" class="form-control timer" id="{{$value.dir}}" name="{{$value.dir}}" type="text" >            <div class="form-control-focus"></div>
+            <span class="help-block">{{$value.comment}}</span>
+        </div>
+    </div>
+    {{/if}}
+
+    {{if is_multi($value.view) == "select"}}
+    <div class="form-group form-md-line-input">
+        <label class="col-md-3 control-label" for="form_control">{{$value.name}}</label>
+        <div class="col-md-9">
+            <select class="form-control {{if is_custom($value.view)}} is_custom {{/if}}" custom-option="{{$value.view}}" id="{{$value.dir}}" name="{{$value.dir}}">
+                {{each multi_arr($value.view) $v}}
+                <option value="{{$v}}">{{$v}}</option>
+                {{/each}}
+            </select>
+            <div class="form-control-focus"></div>
+        </div>
+    </div>
+    {{/if}}
+
+    {{if is_multi($value.view) == "markdown"}}
+    <div class="form-group form-md-line-input">
+        <label class="col-md-3 control-label" for="form_control">请输入文字域默认值</label>
+        <div class="col-md-9">
+        <div class="markdown" id="{{$value.dir}}"></div>
+        </div>
+    </div>
+    {{/if}}
+
+    {{if is_multi($value.view) == "textarea" }}
+    <div class="form-group form-md-line-input">
+        <label class="col-md-3 control-label" for="form_control">{{$value.name}}</label>
+        <div class="col-md-9">
+            <div class="form-group form-md-line-input">
+                <textarea class="form-control" name="{{$value.dir}}" rows="3">{{$value.default}}</textarea>
+            </div>
+        </div>
+    </div>
+
+    {{/if}}
+
+    {{if is_multi($value.view) == "simple_img_upload" ||is_multi($value.view) == "simple_file_upload" ||is_multi($value.view) == "multi_img_upload" ||is_multi($value.view) == "multi_file_upload" }}
+    <div class="form-group form-md-line-input">
+        <label class="col-md-3 control-label" for="form_control">{{$value.name}}</label>
+        <div class="col-md-9">
+            <form action="" class="dropzone dropzone-file-area" m-id="{{$value.dir}}" acceptedFiles="{{getAcceptedFiles($value.view)}}" id="my-dropzone" style="width: 500px; margin-top: 50px;">
+                <h3 class="sbold">请将要上传的图片或文件拖拽到此处</h3>
+                <p> 请按照要求格式进行上传，否则将会出错 </p>
+            </form>
+            <input type="hidden" id="{{$value.dir}}" name="{{$value.dir}}" value="">
+        </div>
+    </div>
+
+    {{/if}}
+
+
+    {{if is_multi($value.view) == "ueditor"}}
+    <div class="form-group form-md-line-input">
+        <label class="col-md-3 control-label" for="form_control">{{$value.name}}</label>
+        <div class="col-md-9">
+           <div class="ueditor" style="height: 600px" id="{{$value.dir}}"></div>
+</div>
+</div>
+    {{/if}}
+    {{/each}}
+</div>
+
+<div id="extra"></div>
+<div class="form-actions">
+    <button type="submit" class="btn blue">确认添加</button>
+    <button type="button" onclick="" class="btn default">取消</button>
+</div>
+<script>
+    $(".dropzone-file-area").each(function(){
+        // function myTrim(x) {
+        //     return x.replace(/^\s+|\s+$/gm,'');
+        // }
+        var ext = $(this).attr('acceptedFiles').split('|');
+        var a = '';
+        for(var i=0;i<ext.length;i++){
+            a+= '.'+ext[i]+',';
+        }
+        a=a.substring(0,a.length-1);
+        var dir = $(this).attr('m-id')
+        $(this).dropzone({
+           url: "/api/upload",
+           acceptedFiles: a,
+           headers:{'dir': dir},
+           init: function(){
+               this.on("success", function(file,res) {
+                   // 得到了响应的文件名，把文件名放到hiddedn域中，用 ; 分割
+                   // var id = $(this).attr('m-id') ; // 获取到dir的值
+                   var value = $("#"+dir).val();
+                   // 去掉左右的; 然后自行添加上，并添加上响应的值
+                   // console.log($("#"+dir));
+                   if(value==""||typeof(value)=='undefined'){
+                       $("#"+dir).val(res);
+                   }else{
+                       value = value+';'+res; //得到数据
+                       $("#"+dir).val(value.trim(';')); // 去掉左右两侧的;
+                   }
+
+               });
+
+               this.on("removedfile", function(file) {
+                   // TODO 移除文件，这里应当把input中的内容删掉，避免保存
+               });
+           }
+       });
+    });
+
+    $(".is_custom").each(function(){
+        var custom = $(this).attr('custom-option');
+        var id = $(this).attr('id');
+        $.ajax({
+            type: 'get',
+            data: {"name":"get_custom_option","custom_option":custom},
+            url:'/api/admin/components',
+            headers: {'Authorization': 'Bearer ' + localStorage.api_token},
+            success: function (d) {
+                var data = d.data;
+                var html = '';
+                for(var i=0;i<data.length;i++){
+                    html += `
+                    <option value="${data[i].key}" >  ${data[i].value}  </option>
+                    `;
+                }
+                // 这里用原生的，jquery的函数用不了，原因未知，这里很多函数都用不了，应该是作用域的问题
+                document.getElementById(id).innerHTML = html;
+            },
+            error: function (d) {
+                if(d.responseText=='Unauthorized') window.location.href="/Admin/p.AdminManager.login";
+                alert("自定义组件访问失败!");
+            }
+        });
+    })
+
+
+    $(".timer").each(function () {
+    $(this).datetimepicker();
+});
+    $(".markdown").each(function () {
+        var id = $(this).attr('id');
+        var editor = editormd(id, {
+            height: 900,
+            saveHTMLToTextarea : true,
+            path : "/js/plugins/editor/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
+        });
+    });
+    $(".ueditor").each(function () {
+        var id = $(this).attr('id');
+        var ue = UE.getEditor(id);
+    })
+</script>
+</script>
+</body>
+
+</html>

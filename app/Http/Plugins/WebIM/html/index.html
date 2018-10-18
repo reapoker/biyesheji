@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/js/plugins/layui/layim/build/css/layui.css">
+    <title>聊天</title>
+</head>
+<body>
+<script src="/js/plugins/layui/layim/build/layui.js"></script>
+<script>
+    // 开启聊天功能
+    // 后台socket的路径
+    // 后台接收端口
+    // 面板最小化时的标题，默认是当前登录人的名称
+    // 默认面板背景皮肤
+    // 开启工具栏：
+            // 音频 视频
+    // 开启群组 默认开启 以角色分群组
+    // 开启好友 默认开启
+    // 默认头像
+    // 默认群头像
+
+
+    // 从后台获取配置的信息
+    // 从后台获取列表
+    layui.use('layim',function (layim) {
+        layim.config({
+            brief : false,
+            title:'我就是试试',
+            notice:true,
+            copyright:true,
+            isfriend:false,
+            isgroup:false,
+        })
+    })
+</script>
+</body>
+</html>
